@@ -77,7 +77,7 @@ const IGameState = {
   onStart: function() {},
   onStop: function() {},
   onTileClick: function() {},
-  onUpdate: function() {},
+  onUpdate: function() {}
 }
 
 Game.UndefinedState = function() {};
@@ -112,7 +112,7 @@ Game.PlayState.prototype = Object.assign(
     },
     onUpdate: function(game) {
       const tileCount = game.countTiles();
-      const clearToWinCount = game.tileArray.length - Game.MINE_COUNT;
+      const clearToWinCount = game.tileArray.length - game.difficulty.mineCount;
 
       const currentClearedCount = 
         tileCount.get(Game.Tile.UnsafeState)
@@ -163,7 +163,7 @@ Game.Difficulty = function(name, size, mineCount) {
   this.mineCount = mineCount;
 }
 
-Game.Difficulty.BEGGINER = new Game.Difficulty("Beginner", new IVect2D(8, 8), 10);
+Game.Difficulty.BEGINNER = new Game.Difficulty("Beginner", new IVect2D(8, 8), 10);
 Game.Difficulty.INTERMEDIATE = new Game.Difficulty("Intermediate", new IVect2D(16, 16), 40);
 Game.Difficulty.EXPERT = new Game.Difficulty("Expert", new IVect2D(24, 24), 99);
 

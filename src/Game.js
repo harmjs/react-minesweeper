@@ -12,7 +12,7 @@ const FaceEmoticonMap = new Map([
 ])
 
 const GameComponent = () => {
-  const [game, updateGame] = useObject(new Game(Game.Difficulty.BEGGINER));
+  const [game, updateGame] = useObject(new Game(Game.Difficulty.BEGINNER));
   const [time, setTime] = useState(0);
 
   useEffect(() => {
@@ -126,6 +126,7 @@ const UnsafeTileComponent = ({ state }) => {
     </div>
   );
 };
+
 const FlagTileComponent = () => (
   <div className="tile__hidden tile__flag">
     🚩
